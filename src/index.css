@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-gold: #C5A059;
+  --color-gold-light: #E2C28C;
+  --color-gold-dark: #8E6F3E;
+  --color-navy: #0F172A;
+  --color-cream: #F8F5F0;
+}
+
+body {
+  @apply bg-cream text-slate-900 antialiased selection:bg-gold selection:text-white;
+  direction: rtl;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 50%, var(--color-gold-light) 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(to bottom, var(--color-gold-light), var(--color-gold), var(--color-gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.premium-shadow {
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s infinite alternate ease-in-out;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-cream; }
+::-webkit-scrollbar-thumb { @apply bg-gold/30 rounded-full hover:bg-gold/50 transition-colors; }
